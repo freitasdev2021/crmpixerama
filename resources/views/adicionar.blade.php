@@ -9,26 +9,30 @@
                 <div class="card-header">Lista de Leads</div>
                 <div class="card-body text-center">
                     <!--BODY-->
-                    <form class="form">
+                    <form class="form" action="">
                         <div class="col-sm-12">
-                            <input type="name" class="form-control" name="nome">
+                            <input type="name" class="form-control" name="nome" required>
                         </div>
                         <br>
                         <div class="col-sm-12 row">
                             <div class="col-sm-6">
-                                <input type="email" class="form-control" name="email">
+                                <input type="email" class="form-control" name="email" required>
                             </div>
                             <div class="col-sm-6">
-                                <input type="tel" class="form-control" name="telefone">
+                                <input type="tel" class="form-control" name="telefone" required>
                             </div>
                         </div>
                         <br>
                         <div class="col-sm-12 row ">
                             <div class="col-sm-6">
-                                <input type="email" class="form-control">
+                                <select name="estado" class="form-control" required>
+
+                                </select>
                             </div>
                             <div class="col-sm-6">
-                                <input type="email" class="form-control">
+                                <select name="cidade" class="form-control" required>
+
+                                </select>
                             </div>
                         </div>
                         <br>
