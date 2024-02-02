@@ -37,6 +37,11 @@ jQuery(function(){
                 $("select[name=cidade]").append("<option value='"+c.nomeCidade+"'>"+c.nomeCidade+"</option>")
             })
         })
+        //PREENCHE COM O DADO ATUAL PARA EDIÇÃO
+        if($("select[name=estado]").attr("data-atual") && $("select[name=cidade]").attr("data-atual")){
+            $("select[name=estado]").val($("select[name=estado]").attr("data-atual"))
+            $("select[name=cidade]").html("<option value='"+$("select[name=cidade]").attr('data-atual')+"'>"+$("select[name=cidade]").attr('data-atual')+"</option>")
+        }
         //
     })
     //

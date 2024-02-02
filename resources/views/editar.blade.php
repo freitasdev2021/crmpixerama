@@ -4,32 +4,48 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <a class="btn btn-success" href="{{route('adicionar')}}">Adicionar</a>
-            <div class="card" style="margin-top:10px;">
-                <div class="card-header">Lista de Leads</div>
-                <div class="card-body text-center">
+            <div class="card">
+                <div class="card-header">Editar Lead</div>
+                <div class="card-body">
                     <!--BODY-->
-                    <form class="form">
+                    <form class="form" method="POST" action="{{route('leads.update')}}">
+                        @csrf
+                        @method("PATCH")
+                        <input type="hidden" name="id" value="{{$lead->id}}">
                         <div class="col-sm-12">
-                            <input type="name" class="form-control" name="nome">
+                            <label>Nome</label>
+                            <input type="name" class="form-control" name="nome" required maxlength="100" value="{{$lead->NMLead}}">
                         </div>
                         <br>
                         <div class="col-sm-12 row">
                             <div class="col-sm-6">
-                                <input type="email" class="form-control" name="email">
+                                <label>Email</label>
+                                <input type="email" class="form-control" name="email" required maxlength="100" value="{{$lead->NMEmailLead}}"> 
                             </div>
                             <div class="col-sm-6">
-                                <input type="tel" class="form-control" name="telefone">
+                                <label>Telefone</label>
+                                <input type="number" pattern="\d*" maxlength="11" class="form-control" name="telefone" required placeholder="Telefone" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" value="{{$lead->NUTelefoneLead}}">
                             </div>
                         </div>
                         <br>
                         <div class="col-sm-12 row ">
                             <div class="col-sm-6">
-                                <input type="email" class="form-control">
+                                <label>Estado</label>
+                                <select name="estado" class="form-control" required data-atual="{{$lead->UF}}">
+                                    
+                                </select>
                             </div>
                             <div class="col-sm-6">
-                                <input type="email" class="form-control">
+                                <label>Cidade</label>
+                                <select name="cidade" class="form-control" required data-atual="{{$lead->NMCidadeLead}}">
+
+                                </select>
                             </div>
+                        </div>
+                        <br>
+                        <div class="col-sm-12">
+                            <label>Mensagem</label>
+                            <textarea class="form-control" maxlength="250" style="resize:none;" name="mensagem">{{$lead->DSMensagem}}</textarea>
                         </div>
                         <br>
                         <div class="col-sm-12">

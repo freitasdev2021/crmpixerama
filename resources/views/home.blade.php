@@ -21,17 +21,19 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @foreach($leads as $l)
                             <tr>
-                                <td>Max Henrique</td>
-                                <td>maxhenrique308@gmail.com</td>
-                                <td>31983086235</td>
-                                <td>ipatinga/mg</td>
-                                <td>o melhor programador de ipatinga</td>
+                                <td>{{$l->NMLead}}</td>
+                                <td>{{$l->NMEmailLead}}</td>
+                                <td>{{$l->NUTelefoneLead}}</td>
+                                <td>{{$l->NMCidadeLead}}/{{$l->UF}}</td>
+                                <td>{{$l->DSMensagem}}</td>
                                 <td>
-                                    <a href="{{route('excluir',1)}}" class="btn btn-danger">Excluir</a>
-                                    <a href="{{route('editar',1)}}" class="btn btn-primary">Editar</a>
+                                    <a href="{{route('excluir',$l->id)}}" class="btn btn-danger">Excluir</a>
+                                    <a href="{{route('editar',$l->id)}}" class="btn btn-primary">Editar</a>
                                 </td>
                             </tr>
+                        @endforeach
                         </tbody>
                     </table>
                     <!--BODY-->

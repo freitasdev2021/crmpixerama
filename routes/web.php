@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\LeadsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,12 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
-
-Route::get('/', function () {
-    return view('home');
-})->middleware(['auth', 'verified'])->name('home');
 
 Route::middleware('auth')->group(function () {
     //ROTAS DE VISUALIZAÇÃO
@@ -29,14 +26,15 @@ Route::middleware('auth')->group(function () {
         return view('adicionar');
     })->name('adicionar');
     //EXCLUIR
-    Route::get('/excluir/{id}',function(){
-        return view('excluir');
-    })->name('excluir');
+    Route::get('/excluir/{id}',[LeadsController::class, 'delete'])->name('excluir');
     //EDITAR
-    Route::get('/editar/{id}',function(){
-        return view('editar');
-    })->name('editar');
+    Route::get('/editar/{id}',[LeadsController::class, 'edit'])->name('editar');
     //ROTAS DE OPERAÇÕES
+    //LEADS
+    Route::post('/leads/create', [LeadsController::class, 'create'])->name('leads.create');
+    Route::patch('/leads/update', [LeadsController::class, 'update'])->name('leads.update');
+    Route::post('/leads/delete', [LeadsController::class, 'destroy'])->name('leads.delete');
+    //USUÁRIOS
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
