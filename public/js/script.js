@@ -1,23 +1,4 @@
 jQuery(function(){
-    //
-    $(document).ready(function(){
-        //FORMATAR TEXTO SEM CARACTERES ESPECIAIS
-        $('input[type=name]').bind('input',function(){
-            str = $(this).val().replace(/[^A-Za-z\u00C0-\u00FF\-\/\s]+/g,'');
-            str = str.replace(/[\s{ \2 }]+/g,' ');
-            if(str == " ")str = "";
-            $(this).val( str );
-        });
-        //FORMATAR TEXTAREA SEM CARACTERES ESPECIAIS
-        $('textarea').bind('textarea',function(){
-            str = $(this).val().replace(/[^A-Za-z\u00C0-\u00FF\-\/\s]+/g,'');
-            str = str.replace(/[\s{ \2 }]+/g,' ');
-            if(str == " ")str = "";
-            $(this).val( str );
-        });
-        //EXCLUIR OS ERROS QUANDO RECARREGAR A TELA
-        $(".error-input").hide()
-    })
     //SELECT DE CIDADES E ESTADOS
     $.ajax({
         method : "GET",

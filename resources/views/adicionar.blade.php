@@ -23,7 +23,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <label>Telefone</label>
-                                <input type="number" pattern="\d*" maxlength="11" class="form-control" name="telefone" required placeholder="Telefone" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                                <input type="number" maxlength="11" class="form-control" name="telefone" required placeholder="Telefone" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                             </div>
                         </div>
                         <br>
